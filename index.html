@@ -12,65 +12,66 @@
 
   .hero { padding: 28px 20px 22px; position: relative; background: linear-gradient(135deg, #0a0e1a, #0d1f3c 60%, #0a1628); }
   .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 75% 20%, rgba(0,180,255,0.13) 0%, transparent 55%); pointer-events:none; }
-  .badge { display:inline-block; background:rgba(0,180,255,0.15); border:1px solid rgba(0,180,255,0.4); color:#fff; font-size:10px; letter-spacing:3px; padding:4px 12px; border-radius:20px; margin-bottom:12px; position:relative; }
-  .title-eng { font-family:'Orbitron',monospace; font-size:10px; font-weight:700; letter-spacing:4px; color:#fff; opacity:0.55; margin-bottom:5px; position:relative; }
-  .title-main { font-weight:900; font-size:32px; line-height:1.15; color:#fff; margin-bottom:4px; position:relative; }
+  .badge { display:inline-block; background:rgba(0,180,255,0.15); border:1px solid rgba(0,180,255,0.4); color:#fff; font-size:11px; letter-spacing:3px; padding:4px 12px; border-radius:20px; margin-bottom:12px; position:relative; }
+  .title-eng { font-family:'Orbitron',monospace; font-size:11px; font-weight:700; letter-spacing:4px; color:#fff; margin-bottom:5px; position:relative; }
+  .title-main { font-weight:900; font-size:34px; line-height:1.15; color:#fff; margin-bottom:4px; position:relative; }
   .title-main span { color:#00b4ff; }
-  .subtitle { font-size:12px; color:#fff; opacity:0.55; letter-spacing:2px; margin-bottom:16px; position:relative; }
+  .subtitle { font-size:13px; color:#fff; letter-spacing:2px; margin-bottom:16px; position:relative; }
   .drone-svg { position:absolute; right:16px; top:24px; opacity:0.8; }
   .dates { display:flex; gap:5px; flex-wrap:wrap; position:relative; }
-  .date-pill { background:rgba(0,180,255,0.12); border:1px solid rgba(0,180,255,0.3); padding:4px 10px; border-radius:20px; font-size:11px; color:#fff; font-weight:500; }
+  .date-pill { background:rgba(0,180,255,0.12); border:1px solid rgba(0,180,255,0.3); padding:4px 10px; border-radius:20px; font-size:12px; color:#fff; font-weight:500; }
 
   .glowline { height:1px; background:linear-gradient(90deg, transparent, rgba(0,180,255,0.6), rgba(120,80,255,0.4), transparent); }
 
   .schedule { padding:18px 20px; }
   .day-block { margin-bottom:14px; }
   .day-header { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
-  .day-tag { font-family:'Orbitron',monospace; font-size:11px; font-weight:700; background:#00b4ff; color:#001a2e; padding:3px 10px; border-radius:4px; letter-spacing:1px; }
-  .day-info { font-size:11px; color:#fff; opacity:0.55; }
+  .day-tag { font-family:'Orbitron',monospace; font-size:12px; font-weight:700; background:#00b4ff; color:#001a2e; padding:4px 11px; border-radius:4px; letter-spacing:1px; }
+  .day-info { font-size:12px; color:#fff; }
 
   .slots { display:flex; flex-direction:column; gap:5px; }
-  .slot { border-radius:7px; padding:9px 12px; position:relative; overflow:hidden; border:0.5px solid rgba(255,255,255,0.1); }
+  .slot { border-radius:7px; padding:10px 13px; position:relative; overflow:hidden; border:0.5px solid rgba(255,255,255,0.15); }
   .slot::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
   .slot.am { background:rgba(0,100,200,0.12); }
   .slot.am::before { background:linear-gradient(90deg,#00b4ff,#0070ff); }
   .slot.pm { background:rgba(100,50,200,0.12); }
   .slot.pm::before { background:linear-gradient(90deg,#8b5cf6,#c026d3); }
-  .slot.lunch { background:rgba(255,255,255,0.03); border-color:rgba(255,255,255,0.06); }
+  .slot.lunch { background:rgba(255,255,255,0.03); border-color:rgba(255,255,255,0.1); }
   .slot.lunch::before { background:rgba(255,200,80,0.35); }
-  .slot.home { background:rgba(255,255,255,0.03); border-color:rgba(255,255,255,0.06); }
+  .slot.home { background:rgba(255,255,255,0.03); border-color:rgba(255,255,255,0.1); }
   .slot.home::before { background:rgba(80,200,120,0.35); }
 
-  .slot-row { display:flex; align-items:baseline; gap:8px; }
-  .slot-time { font-size:9px; letter-spacing:1px; color:#fff; opacity:0.5; white-space:nowrap; min-width:54px; }
+  .slot-row { display:flex; align-items:baseline; gap:10px; }
+  .slot-time { font-size:10px; letter-spacing:1px; color:#fff; white-space:nowrap; min-width:58px; }
   .slot-body { flex:1; }
-  .slot-name { font-size:12px; font-weight:700; color:#fff; line-height:1.4; }
-  .slot-desc { font-size:10px; color:#fff; opacity:0.65; line-height:1.5; margin-top:2px; }
-  .slot.lunch .slot-name, .slot.home .slot-name { font-weight:500; opacity:0.7; font-size:11px; }
+  .slot-name { font-size:13px; font-weight:700; color:#fff; line-height:1.4; }
+  .slot-desc { font-size:11px; color:#fff; line-height:1.6; margin-top:3px; }
+  .slot.lunch .slot-name { font-weight:500; font-size:12px; color:#fff; }
+  .slot.home .slot-name { font-weight:500; font-size:12px; color:#fff; }
 
   .day-divider { height:0.5px; background:rgba(255,255,255,0.07); margin:6px 0; }
 
   .info-bar { background:rgba(0,180,255,0.06); border-top:0.5px solid rgba(0,180,255,0.2); padding:16px 20px; }
   .info-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px; text-align:center; }
-  .info-icon { font-size:15px; margin-bottom:3px; }
-  .info-label { font-size:9px; color:#fff; opacity:0.45; letter-spacing:1px; margin-bottom:2px; }
-  .info-value { font-size:11px; font-weight:700; color:#fff; }
+  .info-icon { font-size:16px; margin-bottom:3px; }
+  .info-label { font-size:10px; color:#fff; letter-spacing:1px; margin-bottom:2px; }
+  .info-value { font-size:12px; font-weight:700; color:#fff; }
 
   .box { border-radius:9px; padding:11px 14px; margin-bottom:10px; }
   .box.blue { background:rgba(0,180,255,0.09); border:0.5px solid rgba(0,180,255,0.25); }
   .box.yellow { background:rgba(255,200,50,0.07); border:0.5px solid rgba(255,200,50,0.25); }
-  .box-text { font-size:11px; color:#fff; line-height:1.8; }
+  .box-text { font-size:12px; color:#fff; line-height:1.8; }
   .box-text strong { color:#00b4ff; }
   .box.yellow .box-text strong { color:#ffd050; }
 
-  .contact-box { background:rgba(255,255,255,0.04); border:0.5px solid rgba(255,255,255,0.12); border-radius:9px; padding:13px 16px; }
-  .contact-org { font-size:13px; font-weight:700; color:#fff; margin-bottom:5px; }
-  .contact-tel { font-size:12px; color:#fff; }
-  .contact-tel span { font-family:'Orbitron',monospace; font-size:13px; font-weight:700; color:#00b4ff; }
+  .contact-box { background:rgba(255,255,255,0.04); border:0.5px solid rgba(255,255,255,0.15); border-radius:9px; padding:13px 16px; }
+  .contact-org { font-size:14px; font-weight:700; color:#fff; margin-bottom:5px; }
+  .contact-tel { font-size:13px; color:#fff; }
+  .contact-tel span { font-family:'Orbitron',monospace; font-size:14px; font-weight:700; color:#00b4ff; }
 
   .footer { padding:12px 20px 18px; text-align:center; }
   .tag-row { display:flex; gap:5px; flex-wrap:wrap; justify-content:center; }
-  .tag { background:rgba(255,255,255,0.06); border:0.5px solid rgba(255,255,255,0.15); border-radius:20px; padding:3px 10px; font-size:9px; color:#fff; opacity:0.55; letter-spacing:1px; }
+  .tag { background:rgba(255,255,255,0.06); border:0.5px solid rgba(255,255,255,0.2); border-radius:20px; padding:4px 11px; font-size:10px; color:#fff; letter-spacing:1px; }
 </style>
 </head>
 <body>
@@ -93,7 +94,7 @@
       <circle cx="85" cy="65" r="3" fill="#00b4ff" opacity="0.8"/>
     </svg>
     <div class="badge">⚡ 2026 Summer Camp</div>
-    <div class="title-eng">Drone Academy</div>
+    <div class="title-eng">DRONE ACADEMY</div>
     <div class="title-main">無人機<span>飛行</span><br>體驗營</div>
     <div class="subtitle">五天課程 · 從零到競技 · 每日通勤</div>
     <div class="dates">
