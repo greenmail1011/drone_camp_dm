@@ -36,18 +36,23 @@
   .slot.am::before { background:linear-gradient(90deg,#00b4ff,#0070ff); }
   .slot.pm { background:rgba(100,50,200,0.12); }
   .slot.pm::before { background:linear-gradient(90deg,#8b5cf6,#c026d3); }
-  .slot.lunch { background:rgba(255,255,255,0.03); border-color:rgba(255,255,255,0.1); }
-  .slot.lunch::before { background:rgba(255,200,80,0.35); }
+  .slot.lunch { background:rgba(255,200,80,0.06); border-color:rgba(255,200,80,0.2); }
+  .slot.lunch::before { background:rgba(255,200,80,0.5); }
   .slot.home { background:rgba(255,255,255,0.03); border-color:rgba(255,255,255,0.1); }
   .slot.home::before { background:rgba(80,200,120,0.35); }
 
-  .slot-row { display:flex; align-items:baseline; gap:10px; }
-  .slot-time { font-size:10px; letter-spacing:1px; color:#fff; white-space:nowrap; min-width:58px; }
+  .slot-row { display:flex; align-items:flex-start; gap:10px; }
+  .slot-time { font-size:10px; letter-spacing:1px; color:#fff; white-space:nowrap; min-width:58px; padding-top:2px; }
   .slot-body { flex:1; }
-  .slot-name { font-size:13px; font-weight:700; color:#fff; line-height:1.4; }
-  .slot-desc { font-size:11px; color:#fff; line-height:1.6; margin-top:3px; }
-  .slot.lunch .slot-name { font-weight:500; font-size:12px; color:#fff; }
-  .slot.home .slot-name { font-weight:500; font-size:12px; color:#fff; }
+  .slot-name { font-size:13px; font-weight:700; color:#fff; line-height:1.4; margin-bottom:4px; }
+  .slot-lead { font-size:11px; color:#fff; line-height:1.65; margin-bottom:5px; }
+  .slot-tags { display:flex; flex-wrap:wrap; gap:4px; }
+  .slot-tag { font-size:9px; color:#fff; background:rgba(255,255,255,0.1); border:0.5px solid rgba(255,255,255,0.2); border-radius:20px; padding:2px 8px; }
+  .slot.am .slot-tag { background:rgba(0,180,255,0.15); border-color:rgba(0,180,255,0.3); }
+  .slot.pm .slot-tag { background:rgba(139,92,246,0.15); border-color:rgba(139,92,246,0.3); }
+  .slot.lunch .slot-name { font-weight:700; font-size:12px; }
+  .slot.lunch .slot-lead { font-size:11px; margin-bottom:0; }
+  .slot.home .slot-name { font-weight:500; font-size:12px; }
 
   .day-divider { height:0.5px; background:rgba(255,255,255,0.07); margin:6px 0; }
 
@@ -113,9 +118,9 @@
     <div class="day-block">
       <div class="day-header"><div class="day-tag">Day 1</div><div class="day-info">7/6（週一）</div></div>
       <div class="slots">
-        <div class="slot am"><div class="slot-row"><div class="slot-time">09:00–12:00</div><div class="slot-body"><div class="slot-name">認識無人機</div><div class="slot-desc">無人機飛行原理 · 程式模擬飛行</div></div></div></div>
-        <div class="slot lunch"><div class="slot-row"><div class="slot-time">12:00–13:00</div><div class="slot-body"><div class="slot-name">午餐、午休</div></div></div></div>
-        <div class="slot pm"><div class="slot-row"><div class="slot-time">13:00–16:00</div><div class="slot-body"><div class="slot-name">飛行初體驗</div><div class="slot-desc">基礎操作控制 · 對頻技巧 · 電池養護<br>定點起降 · 高度移動 · 方向移動</div></div></div></div>
+        <div class="slot am"><div class="slot-row"><div class="slot-time">09:00–12:00</div><div class="slot-body"><div class="slot-name">認識無人機</div><div class="slot-lead">從馬達、螺旋槳到飛控模組，帶孩子認識無人機的基本構造與飛行原理，建立正確的安全操作觀念，並透過程式模擬器熟悉遙控手感。</div><div class="slot-tags"><span class="slot-tag">無人機構造</span><span class="slot-tag">飛行原理</span><span class="slot-tag">安全知識</span><span class="slot-tag">模擬飛行</span></div></div></div></div>
+        <div class="slot lunch"><div class="slot-row"><div class="slot-time">12:00–13:00</div><div class="slot-body"><div class="slot-name">🍱 午餐、午休</div><div class="slot-lead">自備午餐，或攜帶 $100 請老師代購便當</div></div></div></div>
+        <div class="slot pm"><div class="slot-row"><div class="slot-time">13:00–16:00</div><div class="slot-body"><div class="slot-name">飛行初體驗</div><div class="slot-lead">第一次真正上手！學員進行遙控器對頻、電池養護操作，並完成定點起降、高度控制與前後左右方向移動等基礎飛行訓練。</div><div class="slot-tags"><span class="slot-tag">遙控器對頻</span><span class="slot-tag">定點起降</span><span class="slot-tag">高度控制</span><span class="slot-tag">方向移動</span></div></div></div></div>
         <div class="slot home"><div class="slot-row"><div class="slot-time">16:00–16:30</div><div class="slot-body"><div class="slot-name">🏠 溫暖的家</div></div></div></div>
       </div>
     </div>
@@ -125,9 +130,9 @@
     <div class="day-block">
       <div class="day-header"><div class="day-tag">Day 2</div><div class="day-info">7/7（週二）</div></div>
       <div class="slots">
-        <div class="slot am"><div class="slot-row"><div class="slot-time">09:00–12:00</div><div class="slot-body"><div class="slot-name">飛行軟實力</div><div class="slot-desc">無人機法規 · 無人機應用 · 四面停懸</div></div></div></div>
-        <div class="slot lunch"><div class="slot-row"><div class="slot-time">12:00–13:00</div><div class="slot-body"><div class="slot-name">午餐、午休</div></div></div></div>
-        <div class="slot pm"><div class="slot-row"><div class="slot-time">13:00–16:00</div><div class="slot-body"><div class="slot-name">進階障礙飛行</div><div class="slot-desc">S蛇行關刀旗 · 挑戰穿越還<br>側面懸停 · 前進後退</div></div></div></div>
+        <div class="slot am"><div class="slot-row"><div class="slot-time">09:00–12:00</div><div class="slot-body"><div class="slot-name">飛行軟實力</div><div class="slot-lead">了解台灣無人機法規與實際應用場景，建立孩子對科技倫理的認識。並學習四面停懸技巧，訓練空間感知與操控穩定性。</div><div class="slot-tags"><span class="slot-tag">無人機法規</span><span class="slot-tag">產業應用</span><span class="slot-tag">四面停懸</span><span class="slot-tag">空間感知</span></div></div></div></div>
+        <div class="slot lunch"><div class="slot-row"><div class="slot-time">12:00–13:00</div><div class="slot-body"><div class="slot-name">🍱 午餐、午休</div><div class="slot-lead">自備午餐，或攜帶 $100 請老師代購便當</div></div></div></div>
+        <div class="slot pm"><div class="slot-row"><div class="slot-time">13:00–16:00</div><div class="slot-body"><div class="slot-name">進階障礙飛行</div><div class="slot-lead">挑戰進階操控技巧！透過 S 型蛇行繞旗、側面懸停、穿越障礙與前進後退精準控位，全面提升操桿靈敏度與反應能力。</div><div class="slot-tags"><span class="slot-tag">S蛇行繞旗</span><span class="slot-tag">穿越障礙</span><span class="slot-tag">側面懸停</span><span class="slot-tag">精準控位</span></div></div></div></div>
         <div class="slot home"><div class="slot-row"><div class="slot-time">16:00–16:30</div><div class="slot-body"><div class="slot-name">🏠 溫暖的家</div></div></div></div>
       </div>
     </div>
@@ -137,9 +142,9 @@
     <div class="day-block">
       <div class="day-header"><div class="day-tag">Day 3</div><div class="day-info">7/8（週三）</div></div>
       <div class="slots">
-        <div class="slot am"><div class="slot-row"><div class="slot-time">09:00–12:00</div><div class="slot-body"><div class="slot-name">專業小飛手</div><div class="slot-desc">花式翻滾 · 無頭模式 · 一鍵返航</div></div></div></div>
-        <div class="slot lunch"><div class="slot-row"><div class="slot-time">12:00–13:00</div><div class="slot-body"><div class="slot-name">午餐、午休</div></div></div></div>
-        <div class="slot pm"><div class="slot-row"><div class="slot-time">13:00–16:00</div><div class="slot-body"><div class="slot-name">民航局專業小飛手</div><div class="slot-desc">基本級術科 · 模擬測驗</div></div></div></div>
+        <div class="slot am"><div class="slot-row"><div class="slot-time">09:00–12:00</div><div class="slot-body"><div class="slot-name">專業小飛手</div><div class="slot-lead">解鎖高階飛行技巧！學習花式翻滾、無頭模式飛行與一鍵返航操作，體驗真正的競技級操控手感，挑戰自我極限。</div><div class="slot-tags"><span class="slot-tag">花式翻滾</span><span class="slot-tag">無頭模式</span><span class="slot-tag">一鍵返航</span><span class="slot-tag">競技手感</span></div></div></div></div>
+        <div class="slot lunch"><div class="slot-row"><div class="slot-time">12:00–13:00</div><div class="slot-body"><div class="slot-name">🍱 午餐、午休</div><div class="slot-lead">自備午餐，或攜帶 $100 請老師代購便當</div></div></div></div>
+        <div class="slot pm"><div class="slot-row"><div class="slot-time">13:00–16:00</div><div class="slot-body"><div class="slot-name">民航局專業小飛手檢定</div><div class="slot-lead">依照民航局「專業小飛手」基本級術科標準進行模擬測驗，讓孩子體驗正式檢定的流程與評分方式，為考取資格打下基礎。</div><div class="slot-tags"><span class="slot-tag">民航局規範</span><span class="slot-tag">術科模擬</span><span class="slot-tag">基本級測驗</span><span class="slot-tag">檢定準備</span></div></div></div></div>
         <div class="slot home"><div class="slot-row"><div class="slot-time">16:00–16:30</div><div class="slot-body"><div class="slot-name">🏠 溫暖的家</div></div></div></div>
       </div>
     </div>
@@ -149,9 +154,9 @@
     <div class="day-block">
       <div class="day-header"><div class="day-tag">Day 4</div><div class="day-info">7/9（週四）</div></div>
       <div class="slots">
-        <div class="slot am"><div class="slot-row"><div class="slot-time">09:00–12:00</div><div class="slot-body"><div class="slot-name">國際足球無人機模擬練習賽</div><div class="slot-desc">規則說明 · 團隊得分賽練習</div></div></div></div>
-        <div class="slot lunch"><div class="slot-row"><div class="slot-time">12:00–13:00</div><div class="slot-body"><div class="slot-name">午餐、午休</div></div></div></div>
-        <div class="slot pm"><div class="slot-row"><div class="slot-time">13:00–16:00</div><div class="slot-body"><div class="slot-name">國際足球無人機模擬初賽</div><div class="slot-desc">團隊得分賽初賽</div></div></div></div>
+        <div class="slot am"><div class="slot-row"><div class="slot-time">09:00–12:00</div><div class="slot-body"><div class="slot-name">國際足球無人機模擬練習賽</div><div class="slot-lead">正式進入競技模式！講解國際足球無人機賽制規則、得分機制與角色分工，並帶領學員分組進行熱身對抗賽，熟悉賽場節奏與隊友配合。</div><div class="slot-tags"><span class="slot-tag">賽制規則</span><span class="slot-tag">角色分工</span><span class="slot-tag">熱身對抗</span><span class="slot-tag">團隊配合</span></div></div></div></div>
+        <div class="slot lunch"><div class="slot-row"><div class="slot-time">12:00–13:00</div><div class="slot-body"><div class="slot-name">🍱 午餐、午休</div><div class="slot-lead">自備午餐，或攜帶 $100 請老師代購便當</div></div></div></div>
+        <div class="slot pm"><div class="slot-row"><div class="slot-time">13:00–16:00</div><div class="slot-body"><div class="slot-name">國際足球無人機模擬初賽</div><div class="slot-lead">依照正式賽事規格進行初賽，學員以團隊為單位，在充氣型競技場上展開得分對決，體驗競技飛行的緊張刺激與團隊策略思考。</div><div class="slot-tags"><span class="slot-tag">充氣競技場</span><span class="slot-tag">正式初賽</span><span class="slot-tag">得分對決</span><span class="slot-tag">策略思考</span></div></div></div></div>
         <div class="slot home"><div class="slot-row"><div class="slot-time">16:00–16:30</div><div class="slot-body"><div class="slot-name">🏠 溫暖的家</div></div></div></div>
       </div>
     </div>
@@ -161,9 +166,9 @@
     <div class="day-block">
       <div class="day-header"><div class="day-tag">Day 5</div><div class="day-info">7/10（週五）</div></div>
       <div class="slots">
-        <div class="slot am"><div class="slot-row"><div class="slot-time">09:00–12:00</div><div class="slot-body"><div class="slot-name">無人機團體障礙接力賽</div><div class="slot-desc">團隊合作 · 障礙接力競速</div></div></div></div>
-        <div class="slot lunch"><div class="slot-row"><div class="slot-time">12:00–13:00</div><div class="slot-body"><div class="slot-name">午餐、午休</div></div></div></div>
-        <div class="slot pm"><div class="slot-row"><div class="slot-time">13:00–16:00</div><div class="slot-body"><div class="slot-name">國際足球無人機模擬初賽</div><div class="slot-desc">成果計分 · 頒獎典禮</div></div></div></div>
+        <div class="slot am"><div class="slot-row"><div class="slot-time">09:00–12:00</div><div class="slot-body"><div class="slot-name">無人機團體障礙接力賽</div><div class="slot-lead">以接力競速方式挑戰障礙賽道，考驗各組的默契、飛行精準度與臨場應變能力，在歡笑與緊張中迎接營隊最高潮！</div><div class="slot-tags"><span class="slot-tag">障礙接力</span><span class="slot-tag">團隊默契</span><span class="slot-tag">競速挑戰</span><span class="slot-tag">臨場應變</span></div></div></div></div>
+        <div class="slot lunch"><div class="slot-row"><div class="slot-time">12:00–13:00</div><div class="slot-body"><div class="slot-name">🍱 午餐、午休</div><div class="slot-lead">自備午餐，或攜帶 $100 請老師代購便當</div></div></div></div>
+        <div class="slot pm"><div class="slot-row"><div class="slot-time">13:00–16:00</div><div class="slot-body"><div class="slot-name">國際足球無人機決賽暨頒獎</div><div class="slot-lead">五天學習的最終成果展現！進行足球無人機決賽，賽後統計成績並舉辦正式頒獎典禮，讓每位小飛手帶著滿滿成就感與美好回憶結營。</div><div class="slot-tags"><span class="slot-tag">決賽對決</span><span class="slot-tag">成果計分</span><span class="slot-tag">頒獎典禮</span><span class="slot-tag">結營紀念</span></div></div></div></div>
         <div class="slot home"><div class="slot-row"><div class="slot-time">16:00–16:30</div><div class="slot-body"><div class="slot-name">🎓 結營賦歸</div></div></div></div>
       </div>
     </div>
