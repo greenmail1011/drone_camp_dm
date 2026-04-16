@@ -1,78 +1,82 @@
-
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>無人機飛行體驗營 2026</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@700;900&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  .dm { background: #0a0e1a; color: #fff; font-family: 'Noto Sans TC', sans-serif; overflow: hidden; }
-  .hero { background: linear-gradient(135deg, #0a0e1a 0%, #0d1f3c 50%, #0a1628 100%); padding: 36px 32px 28px; position: relative; }
-  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 20%, rgba(0,180,255,0.12) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(80,40,255,0.10) 0%, transparent 50%); }
-  .badge { display: inline-block; background: rgba(0,180,255,0.15); border: 1px solid rgba(0,180,255,0.4); color: #00b4ff; font-size: 11px; letter-spacing: 3px; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; text-transform: uppercase; position: relative; }
-  .title-eng { font-family: 'Orbitron', monospace; font-size: 12px; font-weight: 700; letter-spacing: 4px; color: rgba(0,180,255,0.7); text-transform: uppercase; margin-bottom: 6px; position: relative; }
-  .title-main { font-family: 'Noto Sans TC', sans-serif; font-weight: 900; font-size: 36px; line-height: 1.15; color: #fff; margin-bottom: 6px; position: relative; }
-  .title-main span { color: #00b4ff; }
-  .subtitle { font-size: 14px; color: rgba(255,255,255,0.5); letter-spacing: 2px; margin-bottom: 20px; position: relative; }
-  .drone-svg { position: absolute; right: 24px; top: 30px; opacity: 0.85; }
-  .dates { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 4px; position: relative; }
-  .date-pill { background: rgba(0,180,255,0.12); border: 1px solid rgba(0,180,255,0.3); padding: 5px 13px; border-radius: 20px; font-size: 12px; color: #00b4ff; font-weight: 500; letter-spacing: 1px; }
-  .glowline { height: 1px; background: linear-gradient(90deg, transparent, rgba(0,180,255,0.6), rgba(120,80,255,0.4), transparent); }
+  body { background: #0a0e1a; display: flex; justify-content: center; padding: 24px 12px 40px; }
+  .dm { background: #0a0e1a; color: #fff; font-family: 'Noto Sans TC', sans-serif; max-width: 420px; width: 100%; }
 
-  .schedule { padding: 22px 32px; }
-  .day-row { display: grid; grid-template-columns: 68px 1fr 1fr 1fr; gap: 7px; margin-bottom: 7px; align-items: stretch; }
-  .day-label { display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,180,255,0.1); border: 0.5px solid rgba(0,180,255,0.3); border-radius: 8px; padding: 8px 4px; }
-  .day-num { font-family: 'Orbitron', monospace; font-size: 14px; font-weight: 700; color: #00b4ff; line-height: 1; }
-  .day-date { font-size: 10px; color: rgba(0,180,255,0.6); letter-spacing: 1px; margin-top: 3px; }
-  .day-week { font-size: 10px; color: rgba(255,255,255,0.3); margin-top: 2px; }
+  .hero { padding: 28px 20px 22px; position: relative; background: linear-gradient(135deg, #0a0e1a, #0d1f3c 60%, #0a1628); }
+  .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 75% 20%, rgba(0,180,255,0.13) 0%, transparent 55%); pointer-events:none; }
+  .badge { display:inline-block; background:rgba(0,180,255,0.15); border:1px solid rgba(0,180,255,0.4); color:#fff; font-size:10px; letter-spacing:3px; padding:4px 12px; border-radius:20px; margin-bottom:12px; position:relative; }
+  .title-eng { font-family:'Orbitron',monospace; font-size:10px; font-weight:700; letter-spacing:4px; color:#fff; opacity:0.55; margin-bottom:5px; position:relative; }
+  .title-main { font-weight:900; font-size:32px; line-height:1.15; color:#fff; margin-bottom:4px; position:relative; }
+  .title-main span { color:#00b4ff; }
+  .subtitle { font-size:12px; color:#fff; opacity:0.55; letter-spacing:2px; margin-bottom:16px; position:relative; }
+  .drone-svg { position:absolute; right:16px; top:24px; opacity:0.8; }
+  .dates { display:flex; gap:5px; flex-wrap:wrap; position:relative; }
+  .date-pill { background:rgba(0,180,255,0.12); border:1px solid rgba(0,180,255,0.3); padding:4px 10px; border-radius:20px; font-size:11px; color:#fff; font-weight:500; }
 
-  .session { background: rgba(255,255,255,0.04); border: 0.5px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 11px; position: relative; overflow: hidden; }
-  .session::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
-  .session.am::before { background: linear-gradient(90deg, #00b4ff, #0070ff); }
-  .session.pm::before { background: linear-gradient(90deg, #8b5cf6, #c026d3); }
-  .session.lunch { background: rgba(255,255,255,0.02); border-color: rgba(255,255,255,0.06); }
-  .session.lunch::before { background: rgba(255,200,80,0.4); }
-  .session.home::before { background: rgba(80,200,120,0.4); }
+  .glowline { height:1px; background:linear-gradient(90deg, transparent, rgba(0,180,255,0.6), rgba(120,80,255,0.4), transparent); }
 
-  .session-time { font-size: 9px; letter-spacing: 1.5px; margin-bottom: 4px; font-weight: 500; }
-  .session.am .session-time { color: #00b4ff; }
-  .session.pm .session-time { color: #a78bfa; }
-  .session.lunch .session-time { color: rgba(255,200,80,0.7); }
-  .session.home .session-time { color: rgba(80,200,120,0.7); }
-  .session-name { font-size: 11px; font-weight: 700; color: #fff; line-height: 1.4; margin-bottom: 3px; }
-  .session-desc { font-size: 10px; color: rgba(255,255,255,0.38); line-height: 1.5; }
-  .session.lunch .session-name, .session.home .session-name { font-weight: 500; color: rgba(255,255,255,0.5); font-size: 11px; }
+  .schedule { padding:18px 20px; }
+  .day-block { margin-bottom:14px; }
+  .day-header { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+  .day-tag { font-family:'Orbitron',monospace; font-size:11px; font-weight:700; background:#00b4ff; color:#001a2e; padding:3px 10px; border-radius:4px; letter-spacing:1px; }
+  .day-info { font-size:11px; color:#fff; opacity:0.55; }
 
-  .time-label { background: rgba(255,255,255,0.03); border: 0.5px solid rgba(255,255,255,0.08); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
-  .time-label span { font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
-  .time-label .tilde { font-size: 8px; color: rgba(255,255,255,0.15); }
+  .slots { display:flex; flex-direction:column; gap:5px; }
+  .slot { border-radius:7px; padding:9px 12px; position:relative; overflow:hidden; border:0.5px solid rgba(255,255,255,0.1); }
+  .slot::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
+  .slot.am { background:rgba(0,100,200,0.12); }
+  .slot.am::before { background:linear-gradient(90deg,#00b4ff,#0070ff); }
+  .slot.pm { background:rgba(100,50,200,0.12); }
+  .slot.pm::before { background:linear-gradient(90deg,#8b5cf6,#c026d3); }
+  .slot.lunch { background:rgba(255,255,255,0.03); border-color:rgba(255,255,255,0.06); }
+  .slot.lunch::before { background:rgba(255,200,80,0.35); }
+  .slot.home { background:rgba(255,255,255,0.03); border-color:rgba(255,255,255,0.06); }
+  .slot.home::before { background:rgba(80,200,120,0.35); }
 
-  .divider { height: 0.5px; background: rgba(255,255,255,0.05); margin: 3px 0; }
+  .slot-row { display:flex; align-items:baseline; gap:8px; }
+  .slot-time { font-size:9px; letter-spacing:1px; color:#fff; opacity:0.5; white-space:nowrap; min-width:54px; }
+  .slot-body { flex:1; }
+  .slot-name { font-size:12px; font-weight:700; color:#fff; line-height:1.4; }
+  .slot-desc { font-size:10px; color:#fff; opacity:0.65; line-height:1.5; margin-top:2px; }
+  .slot.lunch .slot-name, .slot.home .slot-name { font-weight:500; opacity:0.7; font-size:11px; }
 
-  .info-bar { background: rgba(0,180,255,0.06); border-top: 0.5px solid rgba(0,180,255,0.2); padding: 18px 32px; }
-  .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
-  .info-item { text-align: center; }
-  .info-icon { font-size: 16px; margin-bottom: 3px; }
-  .info-label { font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: 1px; margin-bottom: 2px; }
-  .info-value { font-size: 12px; font-weight: 700; color: #fff; }
+  .day-divider { height:0.5px; background:rgba(255,255,255,0.07); margin:6px 0; }
 
-  .highlight-box { background: rgba(0,180,255,0.08); border: 1px solid rgba(0,180,255,0.25); border-radius: 10px; padding: 12px 16px; margin-bottom: 12px; }
-  .highlight-text { font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.8; }
-  .highlight-text strong { color: #00b4ff; }
+  .info-bar { background:rgba(0,180,255,0.06); border-top:0.5px solid rgba(0,180,255,0.2); padding:16px 20px; }
+  .info-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px; text-align:center; }
+  .info-icon { font-size:15px; margin-bottom:3px; }
+  .info-label { font-size:9px; color:#fff; opacity:0.45; letter-spacing:1px; margin-bottom:2px; }
+  .info-value { font-size:11px; font-weight:700; color:#fff; }
 
-  .notice-box { background: rgba(255,200,80,0.06); border: 0.5px solid rgba(255,200,80,0.25); border-radius: 10px; padding: 11px 16px; margin-bottom: 12px; }
-  .notice-text { font-size: 11px; color: rgba(255,220,100,0.75); line-height: 1.8; }
-  .notice-text strong { color: #ffd050; }
+  .box { border-radius:9px; padding:11px 14px; margin-bottom:10px; }
+  .box.blue { background:rgba(0,180,255,0.09); border:0.5px solid rgba(0,180,255,0.25); }
+  .box.yellow { background:rgba(255,200,50,0.07); border:0.5px solid rgba(255,200,50,0.25); }
+  .box-text { font-size:11px; color:#fff; line-height:1.8; }
+  .box-text strong { color:#00b4ff; }
+  .box.yellow .box-text strong { color:#ffd050; }
 
-  .contact-box { background: rgba(255,255,255,0.03); border: 0.5px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-  .contact-org { font-size: 13px; font-weight: 700; color: #fff; letter-spacing: 1px; margin-bottom: 5px; }
-  .contact-tel { font-size: 12px; color: rgba(0,180,255,0.8); letter-spacing: 1px; }
-  .contact-tel span { font-family: 'Orbitron', monospace; font-size: 13px; font-weight: 700; color: #00b4ff; }
+  .contact-box { background:rgba(255,255,255,0.04); border:0.5px solid rgba(255,255,255,0.12); border-radius:9px; padding:13px 16px; }
+  .contact-org { font-size:13px; font-weight:700; color:#fff; margin-bottom:5px; }
+  .contact-tel { font-size:12px; color:#fff; }
+  .contact-tel span { font-family:'Orbitron',monospace; font-size:13px; font-weight:700; color:#00b4ff; }
 
-  .footer { padding: 12px 32px 20px; text-align: center; }
-  .tag-row { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
-  .tag { background: rgba(255,255,255,0.06); border: 0.5px solid rgba(255,255,255,0.15); border-radius: 20px; padding: 3px 11px; font-size: 10px; color: rgba(255,255,255,0.45); letter-spacing: 1px; }
+  .footer { padding:12px 20px 18px; text-align:center; }
+  .tag-row { display:flex; gap:5px; flex-wrap:wrap; justify-content:center; }
+  .tag { background:rgba(255,255,255,0.06); border:0.5px solid rgba(255,255,255,0.15); border-radius:20px; padding:3px 10px; font-size:9px; color:#fff; opacity:0.55; letter-spacing:1px; }
 </style>
-
+</head>
+<body>
 <div class="dm">
   <div class="hero">
-    <svg class="drone-svg" width="100" height="82" viewBox="0 0 110 90" fill="none">
+    <svg class="drone-svg" width="88" height="72" viewBox="0 0 110 90" fill="none">
       <ellipse cx="25" cy="25" rx="14" ry="5" fill="none" stroke="rgba(0,180,255,0.5)" stroke-width="1" stroke-dasharray="3 2"/>
       <ellipse cx="85" cy="25" rx="14" ry="5" fill="none" stroke="rgba(0,180,255,0.5)" stroke-width="1" stroke-dasharray="3 2"/>
       <ellipse cx="25" cy="65" rx="14" ry="5" fill="none" stroke="rgba(0,180,255,0.5)" stroke-width="1" stroke-dasharray="3 2"/>
@@ -82,7 +86,6 @@
       <line x1="25" y1="65" x2="42" y2="48" stroke="rgba(0,180,255,0.7)" stroke-width="1.5"/>
       <line x1="85" y1="65" x2="68" y2="48" stroke="rgba(0,180,255,0.7)" stroke-width="1.5"/>
       <rect x="37" y="37" width="36" height="16" rx="4" fill="#0d1f3c" stroke="rgba(0,180,255,0.8)" stroke-width="1"/>
-      <rect x="50" y="40" width="10" height="10" rx="2" fill="rgba(0,180,255,0.2)" stroke="rgba(0,180,255,0.6)" stroke-width="0.8"/>
       <circle cx="55" cy="45" r="2.5" fill="#00b4ff" opacity="0.9"/>
       <circle cx="25" cy="25" r="3" fill="#00b4ff" opacity="0.8"/>
       <circle cx="85" cy="25" r="3" fill="#00b4ff" opacity="0.8"/>
@@ -106,175 +109,86 @@
 
   <div class="schedule">
 
-    <!-- Header row -->
-    <div class="day-row" style="margin-bottom:10px;">
-      <div class="time-label"><span style="font-size:10px;color:rgba(255,255,255,0.25);">時間</span></div>
-      <div class="day-label"><div class="day-num">D1</div><div class="day-date">7/6</div><div class="day-week">週一</div></div>
-      <div class="day-label"><div class="day-num">D2</div><div class="day-date">7/7</div><div class="day-week">週二</div></div>
-      <div class="day-label"><div class="day-num">D3</div><div class="day-date">7/8</div><div class="day-week">週三</div></div>
-    </div>
-
-    <!-- 09:00–12:00 row 1 -->
-    <div class="day-row">
-      <div class="time-label"><span>09:00</span><span class="tilde">～</span><span>12:00</span></div>
-      <div class="session am">
-        <div class="session-time">▲ 上午</div>
-        <div class="session-name">認識無人機</div>
-        <div class="session-desc">無人機飛行原理<br>程式模擬飛行</div>
-      </div>
-      <div class="session am">
-        <div class="session-time">▲ 上午</div>
-        <div class="session-name">飛行軟實力</div>
-        <div class="session-desc">無人機法規<br>無人機應用 · 四面停懸</div>
-      </div>
-      <div class="session am">
-        <div class="session-time">▲ 上午</div>
-        <div class="session-name">專業小飛手</div>
-        <div class="session-desc">花式翻滾 · 無頭模式<br>一鍵返航</div>
+    <div class="day-block">
+      <div class="day-header"><div class="day-tag">D1 · 7/6</div><div class="day-info">週一</div></div>
+      <div class="slots">
+        <div class="slot am"><div class="slot-row"><div class="slot-time">09:00–12:00</div><div class="slot-body"><div class="slot-name">認識無人機</div><div class="slot-desc">無人機飛行原理 · 程式模擬飛行</div></div></div></div>
+        <div class="slot lunch"><div class="slot-row"><div class="slot-time">12:00–13:00</div><div class="slot-body"><div class="slot-name">午餐、午休</div></div></div></div>
+        <div class="slot pm"><div class="slot-row"><div class="slot-time">13:00–16:00</div><div class="slot-body"><div class="slot-name">飛行初體驗</div><div class="slot-desc">基礎操作控制 · 對頻技巧 · 電池養護<br>定點起降 · 高度移動 · 方向移動</div></div></div></div>
+        <div class="slot home"><div class="slot-row"><div class="slot-time">16:00–16:30</div><div class="slot-body"><div class="slot-name">🏠 溫暖的家</div></div></div></div>
       </div>
     </div>
 
-    <div class="divider"></div>
+    <div class="day-divider"></div>
 
-    <!-- 12:00–13:00 lunch row 1 -->
-    <div class="day-row">
-      <div class="time-label"><span>12:00</span><span class="tilde">～</span><span>13:00</span></div>
-      <div class="session lunch"><div class="session-name">午餐、午休</div></div>
-      <div class="session lunch"><div class="session-name">午餐、午休</div></div>
-      <div class="session lunch"><div class="session-name">午餐、午休</div></div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- 13:00–16:00 row 1 -->
-    <div class="day-row">
-      <div class="time-label"><span>13:00</span><span class="tilde">～</span><span>16:00</span></div>
-      <div class="session pm">
-        <div class="session-time">▼ 下午</div>
-        <div class="session-name">飛行初體驗</div>
-        <div class="session-desc">基礎操作控制 · 對頻<br>電池養護 · 定點起降<br>高度移動 · 方向移動</div>
-      </div>
-      <div class="session pm">
-        <div class="session-time">▼ 下午</div>
-        <div class="session-name">進階障礙飛行</div>
-        <div class="session-desc">S蛇行關刀旗<br>挑戰穿越還 · 側面懸停<br>前進後退</div>
-      </div>
-      <div class="session pm">
-        <div class="session-time">▼ 下午</div>
-        <div class="session-name">民航局專業小飛手</div>
-        <div class="session-desc">基本級術科<br>模擬測驗</div>
+    <div class="day-block">
+      <div class="day-header"><div class="day-tag">D2 · 7/7</div><div class="day-info">週二</div></div>
+      <div class="slots">
+        <div class="slot am"><div class="slot-row"><div class="slot-time">09:00–12:00</div><div class="slot-body"><div class="slot-name">飛行軟實力</div><div class="slot-desc">無人機法規 · 無人機應用 · 四面停懸</div></div></div></div>
+        <div class="slot lunch"><div class="slot-row"><div class="slot-time">12:00–13:00</div><div class="slot-body"><div class="slot-name">午餐、午休</div></div></div></div>
+        <div class="slot pm"><div class="slot-row"><div class="slot-time">13:00–16:00</div><div class="slot-body"><div class="slot-name">進階障礙飛行</div><div class="slot-desc">S蛇行關刀旗 · 挑戰穿越還<br>側面懸停 · 前進後退</div></div></div></div>
+        <div class="slot home"><div class="slot-row"><div class="slot-time">16:00–16:30</div><div class="slot-body"><div class="slot-name">🏠 溫暖的家</div></div></div></div>
       </div>
     </div>
 
-    <div class="divider"></div>
+    <div class="day-divider"></div>
 
-    <!-- 16:00–16:30 home row 1 -->
-    <div class="day-row">
-      <div class="time-label"><span>16:00</span><span class="tilde">～</span><span>16:30</span></div>
-      <div class="session home"><div class="session-name">🏠 溫暖的家</div></div>
-      <div class="session home"><div class="session-name">🏠 溫暖的家</div></div>
-      <div class="session home"><div class="session-name">🏠 溫暖的家</div></div>
-    </div>
-
-    <!-- Spacer -->
-    <div style="height:14px;"></div>
-
-    <!-- D4 D5 header -->
-    <div class="day-row" style="margin-bottom:10px;">
-      <div class="time-label"><span style="font-size:10px;color:rgba(255,255,255,0.25);">時間</span></div>
-      <div class="day-label"><div class="day-num">D4</div><div class="day-date">7/9</div><div class="day-week">週四</div></div>
-      <div class="day-label" style="grid-column:span 2;"><div class="day-num">D5</div><div class="day-date">7/10</div><div class="day-week">週五</div></div>
-    </div>
-
-    <!-- 09:00–12:00 row 2 -->
-    <div class="day-row">
-      <div class="time-label"><span>09:00</span><span class="tilde">～</span><span>12:00</span></div>
-      <div class="session am">
-        <div class="session-time">▲ 上午</div>
-        <div class="session-name">國際足球無人機<br>模擬練習賽</div>
-        <div class="session-desc">規則說明<br>團隊得分賽練習</div>
-      </div>
-      <div class="session am" style="grid-column:span 2;">
-        <div class="session-time">▲ 上午</div>
-        <div class="session-name">無人機團體障礙接力賽</div>
-        <div class="session-desc">團隊合作 · 障礙接力競速</div>
+    <div class="day-block">
+      <div class="day-header"><div class="day-tag">D3 · 7/8</div><div class="day-info">週三</div></div>
+      <div class="slots">
+        <div class="slot am"><div class="slot-row"><div class="slot-time">09:00–12:00</div><div class="slot-body"><div class="slot-name">專業小飛手</div><div class="slot-desc">花式翻滾 · 無頭模式 · 一鍵返航</div></div></div></div>
+        <div class="slot lunch"><div class="slot-row"><div class="slot-time">12:00–13:00</div><div class="slot-body"><div class="slot-name">午餐、午休</div></div></div></div>
+        <div class="slot pm"><div class="slot-row"><div class="slot-time">13:00–16:00</div><div class="slot-body"><div class="slot-name">民航局專業小飛手</div><div class="slot-desc">基本級術科 · 模擬測驗</div></div></div></div>
+        <div class="slot home"><div class="slot-row"><div class="slot-time">16:00–16:30</div><div class="slot-body"><div class="slot-name">🏠 溫暖的家</div></div></div></div>
       </div>
     </div>
 
-    <div class="divider"></div>
+    <div class="day-divider"></div>
 
-    <!-- 12:00–13:00 lunch row 2 -->
-    <div class="day-row">
-      <div class="time-label"><span>12:00</span><span class="tilde">～</span><span>13:00</span></div>
-      <div class="session lunch"><div class="session-name">午餐、午休</div></div>
-      <div class="session lunch" style="grid-column:span 2;"><div class="session-name">午餐、午休</div></div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- 13:00–16:00 row 2 -->
-    <div class="day-row">
-      <div class="time-label"><span>13:00</span><span class="tilde">～</span><span>16:00</span></div>
-      <div class="session pm">
-        <div class="session-time">▼ 下午</div>
-        <div class="session-name">國際足球無人機<br>模擬初賽</div>
-        <div class="session-desc">團隊得分賽初賽</div>
-      </div>
-      <div class="session pm" style="grid-column:span 2;">
-        <div class="session-time">▼ 下午</div>
-        <div class="session-name">國際足球無人機模擬初賽</div>
-        <div class="session-desc">成果計分 · 頒獎典禮</div>
+    <div class="day-block">
+      <div class="day-header"><div class="day-tag">D4 · 7/9</div><div class="day-info">週四</div></div>
+      <div class="slots">
+        <div class="slot am"><div class="slot-row"><div class="slot-time">09:00–12:00</div><div class="slot-body"><div class="slot-name">國際足球無人機模擬練習賽</div><div class="slot-desc">規則說明 · 團隊得分賽練習</div></div></div></div>
+        <div class="slot lunch"><div class="slot-row"><div class="slot-time">12:00–13:00</div><div class="slot-body"><div class="slot-name">午餐、午休</div></div></div></div>
+        <div class="slot pm"><div class="slot-row"><div class="slot-time">13:00–16:00</div><div class="slot-body"><div class="slot-name">國際足球無人機模擬初賽</div><div class="slot-desc">團隊得分賽初賽</div></div></div></div>
+        <div class="slot home"><div class="slot-row"><div class="slot-time">16:00–16:30</div><div class="slot-body"><div class="slot-name">🏠 溫暖的家</div></div></div></div>
       </div>
     </div>
 
-    <div class="divider"></div>
+    <div class="day-divider"></div>
 
-    <!-- 16:00–16:30 home row 2 -->
-    <div class="day-row">
-      <div class="time-label"><span>16:00</span><span class="tilde">～</span><span>16:30</span></div>
-      <div class="session home"><div class="session-name">🏠 溫暖的家</div></div>
-      <div class="session home" style="grid-column:span 2;"><div class="session-name">🎓 結營賦歸</div></div>
+    <div class="day-block">
+      <div class="day-header"><div class="day-tag">D5 · 7/10</div><div class="day-info">週五</div></div>
+      <div class="slots">
+        <div class="slot am"><div class="slot-row"><div class="slot-time">09:00–12:00</div><div class="slot-body"><div class="slot-name">無人機團體障礙接力賽</div><div class="slot-desc">團隊合作 · 障礙接力競速</div></div></div></div>
+        <div class="slot lunch"><div class="slot-row"><div class="slot-time">12:00–13:00</div><div class="slot-body"><div class="slot-name">午餐、午休</div></div></div></div>
+        <div class="slot pm"><div class="slot-row"><div class="slot-time">13:00–16:00</div><div class="slot-body"><div class="slot-name">國際足球無人機模擬初賽</div><div class="slot-desc">成果計分 · 頒獎典禮</div></div></div></div>
+        <div class="slot home"><div class="slot-row"><div class="slot-time">16:00–16:30</div><div class="slot-body"><div class="slot-name">🎓 結營賦歸</div></div></div></div>
+      </div>
     </div>
 
   </div>
 
   <div class="info-bar">
     <div class="info-grid">
-      <div class="info-item">
-        <div class="info-icon">🚁</div>
-        <div class="info-label">使用器材</div>
-        <div class="info-value">足球無人機</div>
-      </div>
-      <div class="info-item">
-        <div class="info-icon">🏟️</div>
-        <div class="info-label">競賽場地</div>
-        <div class="info-value">充氣型競技場</div>
-      </div>
-      <div class="info-item">
-        <div class="info-icon">🏆</div>
-        <div class="info-label">結業成果</div>
-        <div class="info-value">競賽＋頒獎</div>
-      </div>
+      <div><div class="info-icon">🚁</div><div class="info-label">使用器材</div><div class="info-value">足球無人機</div></div>
+      <div><div class="info-icon">🏟️</div><div class="info-label">競賽場地</div><div class="info-value">充氣型競技場</div></div>
+      <div><div class="info-icon">🏆</div><div class="info-label">結業成果</div><div class="info-value">競賽＋頒獎</div></div>
     </div>
-
-    <div class="highlight-box">
-      <div class="highlight-text">
+    <div class="box blue">
+      <div class="box-text">
         ✦ 器材全程由<strong>老師準備</strong>，包含足球無人機、2S電池、遙控器、快速充電器<br>
         ✦ 每日<strong>不過夜</strong>，課後各自返家，接送時間 16:30 前
       </div>
     </div>
-
-    <div class="notice-box">
-      <div class="notice-text">
+    <div class="box yellow">
+      <div class="box-text">
         ※ 請家長儘量於 <strong>16:30</strong> 前接孩子回到溫暖的家。若有延誤請在 Line 群組告知，或來電 <strong>03-540-3463</strong> 告知到達時間，謝謝配合。
       </div>
     </div>
-
     <div class="contact-box">
-      <div>
-        <div class="contact-org">新竹市無人機創新科技協會</div>
-        <div class="contact-tel">📞 &nbsp;<span>03-5403463</span></div>
-      </div>
+      <div class="contact-org">新竹市無人機創新科技協會</div>
+      <div class="contact-tel">📞 &nbsp;<span>03-5403463</span></div>
     </div>
   </div>
 
@@ -289,3 +203,5 @@
     </div>
   </div>
 </div>
+</body>
+</html>
